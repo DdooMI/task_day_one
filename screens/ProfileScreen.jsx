@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     menu: {
-        backgroundColor: '#fff',
+      
         borderRadius: 10,
         paddingVertical: 10,
     },
@@ -153,6 +153,6 @@ const styles = StyleSheet.create({
         padding: 5,
         borderRadius: 5
     },
-});
+})
 
 export default ProfileScreen

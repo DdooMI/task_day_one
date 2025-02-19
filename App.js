@@ -1,10 +1,12 @@
 import { View } from 'react-native';
-import ProfileScreen from './screens/ProfileScreen';
+import SignupScreen from './screens/SignupScreen';
 
 export default function App() {
   return (
     <View >
-     <ProfileScreen/>
+      {/* <WelcomeScreen/> */}
+     {/* <LoginScreen/> */}
+     <SignupScreen/>
     </View>
   );
 }
