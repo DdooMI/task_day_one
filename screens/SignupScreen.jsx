@@ -3,6 +3,7 @@ import { Dimensions, StyleSheet, TextInput, View } from 'react-native';
 import ButtonComponent from '../components/ButtonComponent';
 import TextComponent from '../components/TextComponent';
 function SignupScreen() {
+    
     return (
         <View style={styles.container}>
             <TextComponent image='https://media.istockphoto.com/id/1281150061/vector/register-account-submit-access-login-password-username-internet-online-website-concept.jpg?s=612x612&w=0&k=20&c=9HWSuA9IaU4o-CK6fALBS5eaO1ubnsM08EOYwgbwGBo=' title='Sign Up Now' subtitle='Please fill the details to create an account' />

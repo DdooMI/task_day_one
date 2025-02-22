@@ -5,7 +5,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 function ButtonComponent(props) {
   return (
      <View style={styles.bottom}>
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={props.press}>
                         <Text style={styles.buttonText}>{props.title}</Text>
                     </TouchableOpacity>
                     <Text style={styles.linkText}>{props.subtitle}</Text>

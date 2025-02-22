@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 
 function TextComponent(props) {
     return (
-        <View style={styles.container}>
+      <View style={styles.container}>
         <Image source={{ uri: props.image }} style={styles.image} />
         <Text style={styles.title}>{props.title}</Text>
         <Text style={styles.subtitle}>{props.subtitle}</Text>
