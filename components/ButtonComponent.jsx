@@ -3,14 +3,17 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 
 function ButtonComponent(props) {
-  return (
-     <View style={styles.bottom}>
-                    <TouchableOpacity style={styles.button} onPress={props.press}>
-                        <Text style={styles.buttonText}>{props.title}</Text>
-                    </TouchableOpacity>
-                    <Text style={styles.linkText}>{props.subtitle}</Text>
-                </View>
-  )
+    return (
+        <View style={styles.bottom}>
+            <TouchableOpacity style={styles.button} onPress={props.press}>
+                <Text style={styles.buttonText}>{props.title}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={props.presslogin}>
+                <Text style={styles.linkText}>{props.subtitle}</Text>
+            </TouchableOpacity>
+            
+        </View>
+    )
 }
 const styles = StyleSheet.create({
     bottom: {
@@ -21,6 +24,7 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#7E57C2',
         paddingVertical: 15,
+        paddingHorizontal:15,
         borderRadius: 30,
         width: '100%',
         alignItems: 'center',

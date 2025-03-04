@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "429750106659",
+    "project_id": "react-native-ec524",
+    "storage_bucket": "react-native-ec524.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:429750106659:android:17b9f2ad5948be1ae84f96",
+        "android_client_info": {
+          "package_name": "com.example.task_day_one"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAr1ZejTUzS_ZNmtga6PckBA3y4hB-k-2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

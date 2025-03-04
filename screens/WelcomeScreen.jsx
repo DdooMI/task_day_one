@@ -1,13 +1,15 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
 import ButtonComponent from '../components/ButtonComponent';
 import TextComponent from '../components/TextComponent';
 
 const WelcomeScreen = () => {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <TextComponent image='https://img.freepik.com/free-vector/welcome-word-flat-cartoon-people-characters_81522-4207.jpg' title='Welcome' subtitle='Create an account and access our awesome services' />
-            <ButtonComponent  title='Getting Started' subtitle='Already have an account? Log in'/>
+            <ButtonComponent title='Getting Started' press={() => navigation.navigate('login')} />
 
         </View>
     );
@@ -18,7 +20,7 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').height,
         flexGrow: 1,
         backgroundColor: 'white',
-
+        paddingTop: 50,
         alignItems: 'center',
         paddingHorizontal: 20,
     },
