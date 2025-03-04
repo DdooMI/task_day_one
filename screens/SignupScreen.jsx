@@ -27,7 +27,7 @@ function SignupScreen() {
     return (
         <View style={styles.container}>
             <TextComponent image='https://media.istockphoto.com/id/1281150061/vector/register-account-submit-access-login-password-username-internet-online-website-concept.jpg?s=612x612&w=0&k=20&c=9HWSuA9IaU4o-CK6fALBS5eaO1ubnsM08EOYwgbwGBo=' title='Sign Up Now' subtitle='Please fill the details to create an account' />
-            <TextInput style={styles.input} placeholder="Full Name" />
+            <TextInput style={styles.input} placeholder="Full Name" placeholderTextColor="#888" />
             <Controller
                 control={control}
                 rules={{
@@ -41,6 +41,7 @@ function SignupScreen() {
                     <TextInput
                         style={styles.input}
                         placeholder="Email"
+                        placeholderTextColor="#888"
                         onBlur={onBlur}
                         onChangeText={(val) => {
                             onChange(val);
@@ -69,6 +70,7 @@ function SignupScreen() {
                     <TextInput
                         style={styles.input}
                         placeholder="Password"
+                        placeholderTextColor="#888"
                         secureTextEntry
                         onBlur={onBlur}
                         onChangeText={(val) => {

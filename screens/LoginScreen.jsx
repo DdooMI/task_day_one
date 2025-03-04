@@ -47,6 +47,7 @@ function LoginScreen() {
                     <TextInput
                         style={styles.input}
                         placeholder="Email"
+                        placeholderTextColor="#888"
                         onBlur={onBlur}
                         onChangeText={(val) => { 
                             onChange(val);
@@ -75,6 +76,7 @@ function LoginScreen() {
                     <TextInput
                         style={styles.input}
                         placeholder="Password"
+                        placeholderTextColor="#888"
                         secureTextEntry
                         onBlur={onBlur}
                         onChangeText={(val) => { 
