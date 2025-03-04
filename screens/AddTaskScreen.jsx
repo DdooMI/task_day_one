@@ -2,15 +2,15 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useState } from "react";
 import { Alert, Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { useAuth } from "../store/authStore"; // ✅ Import user authentication state
+import { useAuth } from "../store/authStore";
 import { useTodoStore } from "../store/todoStore";
 
 const AddTaskScreen = () => {
     const route = useRoute();
     const navigation = useNavigation();
     const { addTodo, updateTodo } = useTodoStore();
-    const { user } = useAuth(); // ✅ Get authenticated user
-    const { todo } = route.params || {}; // Check if we are editing an existing task
+    const { user } = useAuth(); 
+    const { todo } = route.params || {};
 
     const [task, setTask] = useState({
         name: todo?.name || "",
@@ -37,7 +37,7 @@ const AddTaskScreen = () => {
             } else {
                 await addTodo(user.uid, { ...task, time: task.time.toISOString() });
             }
-            navigation.goBack(); // ✅ Navigate back after adding/updating
+            navigation.goBack();
         } catch (error) {
             Alert.alert("Error", error.message);
         }

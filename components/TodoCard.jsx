@@ -1,11 +1,11 @@
 import React from "react";
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { useAuth } from "../store/authStore"; // ✅ Import authentication state
+import { useAuth } from "../store/authStore";
 import { useTodoStore } from "../store/todoStore";
 
 const TodoCard = ({ todo, onEdit }) => {
     const { deleteTodo } = useTodoStore();
-    const { user } = useAuth(); // ✅ Get logged-in user
+    const { user } = useAuth(); 
 
     const handleDelete = async () => {
         if (!user?.uid) {
@@ -20,7 +20,7 @@ const TodoCard = ({ todo, onEdit }) => {
                 style: "destructive",
                 onPress: async () => {
                     try {
-                        await deleteTodo(user.uid, todo.id); // ✅ Pass user ID
+                        await deleteTodo(user.uid, todo.id);
                     } catch (error) {
                         Alert.alert("Error", error.message);
                     }

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CartScreen from "./screens/CartScreen";
@@ -9,15 +9,29 @@ import ProfileScreen from "./screens/ProfileScreen";
 import SignupScreen from "./screens/SignupScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import TodoScreen from "./screens/TodoScreen";
-import { useAuth } from "./store/authStore"; // ✅ Import useAuth hook
+import { useAuth } from "./store/authStore"; 
 import AddTaskScreen from "./screens/AddTaskScreen";
+import { Text, TouchableOpacity, View } from "react-native";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
-function DrawerNavigator() {
-  const Stack = createNativeStackNavigator(); // Use Stack inside Drawer for navigation
+function CustomDrawerContent(props) {
+  const { logout } = useAuth();
 
+  return (
+    <DrawerContentScrollView {...props}>
+      <DrawerItemList {...props} />
+      <View style={{ padding: 16, borderTopWidth: 1, borderColor: "#ccc" }}>
+        <TouchableOpacity onPress={logout} style={{ padding: 10, backgroundColor: "#ff5555", borderRadius: 5 }}>
+          <Text style={{ color: "white", textAlign: "center", fontWeight: "bold" }}>Logout</Text>
+        </TouchableOpacity>
+      </View>
+    </DrawerContentScrollView>
+  );
+}
+
+function DrawerNavigator() {
   function TodoStack() {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -28,7 +42,7 @@ function DrawerNavigator() {
   }
 
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator drawerContent={(props) => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="Profile" component={ProfileScreen} />
       <Drawer.Screen name="Products" component={ProductScreen} />
       <Drawer.Screen name="Cart" component={CartScreen} />
@@ -49,10 +63,10 @@ function AuthNavigator() {
 }
 
 export default function App() {
-  const { initializeAuth, user } = useAuth(); // ✅ Use the hook inside a component
+  const { initializeAuth, user } = useAuth();
 
   useEffect(() => {
-    initializeAuth(); // ✅ Ensure authentication state is set on app load
+    initializeAuth(); 
   }, []);
 
   return (

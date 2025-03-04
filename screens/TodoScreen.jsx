@@ -7,15 +7,15 @@ import {
   ActivityIndicator, 
   StyleSheet 
 } from "react-native";
-import { useNavigation } from "@react-navigation/native"; // ✅ Import useNavigation
+import { useNavigation } from "@react-navigation/native";
 import { useTodoStore } from "../store/todoStore";
-import { useAuth } from "../store/authStore"; // Auth state
+import { useAuth } from "../store/authStore"; 
 import TodoCard from "../components/TodoCard";
 
 const TodoScreen = () => {
   const { todos, fetchTodos, loading } = useTodoStore();
-  const { user } = useAuth(); // Get authenticated user
-  const navigation = useNavigation(); // ✅ Get navigation instance
+  const { user } = useAuth();
+  const navigation = useNavigation(); 
   const [selectedTodo, setSelectedTodo] = useState(null);
 
   useEffect(() => {
@@ -46,16 +46,15 @@ const TodoScreen = () => {
           renderItem={({ item }) => (
             <TodoCard
               todo={item}
-              onEdit={() => navigation.navigate("addTask", { todo: item })} // ✅ Navigate for editing
+              onEdit={() => navigation.navigate("addTask", { todo: item })} 
             />
           )}
         />
       )}
 
-      {/* Floating Button - Navigate to Add Task */}
       <TouchableOpacity
         style={styles.fab}
-        onPress={() => navigation.navigate("addTask", { todo: null })} // ✅ Navigate for adding a new task
+        onPress={() => navigation.navigate("addTask", { todo: null })}
       >
         <Text style={styles.fabText}>+</Text>
       </TouchableOpacity>

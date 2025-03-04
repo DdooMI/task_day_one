@@ -13,7 +13,6 @@ export const useTodoStore = create((set) => ({
   todos: [],
   loading: true,
 
-  // Fetch tasks for the logged-in user
   fetchTodos: (userId) => {
     if (!userId) return;
     set({ loading: true });
@@ -30,16 +29,12 @@ export const useTodoStore = create((set) => ({
     return unsubscribe;
   },
 
-  // Add new task
   addTodo: async (userId, task) => {
-    if (!userId || !task.name || !task.description || !task.time) {
-      console.error("❌ Missing data:", task);
+    if (!userId || !task.name || !task.description || !task.time) {  
       return;
     }
 
     try {
-      console.log("✅ Adding task for user:", userId, task);
-
       const taskRef = collection(db, "users", userId, "tasks");
       await addDoc(taskRef, {
         name: task.name,
@@ -47,14 +42,11 @@ export const useTodoStore = create((set) => ({
         time: task.time,
         completed: false,
       });
-
-      console.log("✅ Task added successfully!");
     } catch (error) {
-      console.error("❌ Error adding task:", error);
+      console.error("Error adding task:", error);
     }
   },
 
-  // Update task
   updateTodo: async (userId, taskId, updatedTask) => {
     if (!userId || !taskId) return;
 
@@ -62,7 +54,6 @@ export const useTodoStore = create((set) => ({
     await updateDoc(taskRef, updatedTask);
   },
 
-  // Delete task
   deleteTodo: async (userId, taskId) => {
     if (!userId || !taskId) return;
 

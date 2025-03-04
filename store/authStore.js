@@ -3,10 +3,9 @@ import { onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndP
 import { auth } from "../firebaseConfig";
 
 export const useAuth = create((set) => ({
-    user: null,  // Store user data here
+    user: null,
     token: "",
 
-    // Listen to Auth State
     initializeAuth: () => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -17,7 +16,6 @@ export const useAuth = create((set) => ({
         });
     },
 
-    // Login Function
     login: async (data, navigation) => { 
         try {
             const res = await signInWithEmailAndPassword(auth, data.email, data.password);
@@ -28,7 +26,6 @@ export const useAuth = create((set) => ({
         }
     },
 
-    // Signup Function
     signUp: async (data, navigation) => {
         try {
             const res = await createUserWithEmailAndPassword(auth, data.email, data.password);
@@ -39,7 +36,6 @@ export const useAuth = create((set) => ({
         }
     },
 
-    // Logout
     logout: async () => {
         await auth.signOut();
         set({ user: null, token: "" });
